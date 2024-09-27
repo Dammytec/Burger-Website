@@ -173,7 +173,7 @@ function CheckoutPage() {
     
                 console.log('Decoded userId:', userId);
     
-                const response = await axios.get('http://localhost:5000/cart/read', {
+                const response = await axios.get('hhttps://burger-website-backend.vercel.app/cart/read', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -267,7 +267,7 @@ const handleSubmit = async (e) => {
 
             try {
                 const response = await axios.post(
-                    'http://localhost:5000/checkout/checkout',
+                    'https://burger-website-backend.vercel.app/checkout/checkout',
                     formDataToSubmit,
                     {
                         headers: {

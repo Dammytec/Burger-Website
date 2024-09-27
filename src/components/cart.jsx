@@ -64,7 +64,7 @@ function Cart() {
       console.log('User ID:', userId);
       console.log('Product ID:', productId);
       
-      await axios.delete(`http://localhost:5000/cart/delete/${userId}/${productId}`);
+      await axios.delete(`https://burger-website-backend.vercel.app/cart/delete/${userId}/${productId}`);
       
       // Update the cart items in the UI after successful deletion
       setCart(cartItems.filter(item => item.productId._id !== productId));

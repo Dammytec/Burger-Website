@@ -180,7 +180,7 @@ import { useState, useEffect } from "react";
         useEffect(() => {
           const fetchProducts = async () => {
             try {
-              const response = await axios.get('http://localhost:5000/product/get-products');
+              const response = await axios.get('https://burger-website-backend.vercel.app/product/get-products');
               setProducts(response.data);
             } catch (error) {
               console.error('Error fetching products:', error);

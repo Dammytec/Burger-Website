@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+
+
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // Loading state
+  const [showPassword, setShowPassword] = useState(false); // Password visibility toggle
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+    setLoading(true); // Set loading to true
+
     try {
       const response = await axios.post('https://burger-website-backend.vercel.app/auth/login', {
         email,
@@ -27,8 +33,11 @@ const Login = () => {
         setError('Invalid login credentials');
       }
     } catch (err) {
-      setError('An error occurred during login');
+      // Handle specific error messages
+      setError(err.response?.data?.message || 'An error occurred during login');
       console.error('Login error:', err);
+    } finally {
+      setLoading(false); // Reset loading state
     }
   };
 
@@ -49,10 +58,10 @@ const Login = () => {
             required
           />
         </div>
-        <div className="mt-3">
+        <div className="mt-3 relative">
           <label htmlFor="password" className="block mb-2 tracking-tight text-[#502314] font-[800] font-[flame]">Password</label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'} // Toggle password visibility
             id='password'
             placeholder="Password"
             className="border border-2px w-full md:w-[400px] outline-gray-500 h-10 pl-4 rounded"
@@ -60,18 +69,29 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <button 
+            type="button" 
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600"
+            onClick={() => setShowPassword(!showPassword)} // Toggle button
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
         </div>
         <p className="text-[#502314] tracking-tight font-[flame]"><Link to='/forgotPassword'>Forgotten password?</Link></p>
         <div className="flex flex-col md:flex-row justify-between items-center mt-6">
-          <button type="submit" className="bg-[#d72300] p-1 w-full md:w-44 rounded-full text-white font-[900] font-[flame] mb-4 md:mb-0">
-            Login Now
+          <button 
+            type="submit" 
+            className={`bg-[#d72300] p-1 w-full md:w-44 rounded-full text-white font-[900] font-[flame] mb-4 md:mb-0 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={loading} // Disable button when loading
+          >
+            {loading ? 'Logging in...' : 'Login Now'}
           </button>
           <h1 className="font-[900] font-[flame] text-[#502314]"><Link to='/'>Register Now</Link></h1>
         </div>
       </form>
     </div>
   );
-  
 };
 
 export default Login;
+

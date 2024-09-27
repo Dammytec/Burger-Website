@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "proxy": "https://burger-website-backend.vercel.app",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
