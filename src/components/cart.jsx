@@ -27,7 +27,7 @@ function Cart() {
       }
   
       try {
-        const response = await axios.get('http://localhost:5000/cart/read', {
+        const response = await axios.get('https://burger-website-backend.vercel.app/cart/read', {
           headers: {
             'Authorization': `Bearer ${token}`,  // Confirm this is correct
           },

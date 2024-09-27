@@ -29,7 +29,7 @@ function Header() {
                   <Link to='/menu'>Menu</Link>
                 </div>
                 <div className="text-[16px] font-[900] font-[flame] hover:bg-[rgb(232,224,210)] hover:text-[#d72300] rounded-xl px-2 py-1">
-                  <Link to='/confirmation'>Offers</Link>
+                  <Link to='/application'>Offers</Link>
                 </div>
                 <div className="text-[16px] font-[900] font-[flame] hover:bg-[rgb(232,224,210)] hover:text-[#d72300] rounded-xl px-2 py-1">
                   <Link to='/restaurants'>Restaurants</Link>

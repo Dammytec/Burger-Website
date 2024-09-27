@@ -33,7 +33,7 @@ function Header2() {
               <Link to="/menu">Menu</Link>
             </div>
             <div className="text-[16px] font-[900] font-[flame] hover:bg-[rgb(232,224,210)] hover:text-[#d72300] rounded-xl p-[2.5px]">
-              <Link to="/offers">Offers</Link>
+              <Link to="/application">Offers</Link>
             </div>
             <div className="text-[16px] font-[900] font-[flame] hover:bg-[rgb(232,224,210)] hover:text-[#d72300] rounded-xl p-[2.5px]">
               <Link to="/restaurants">Restaurants</Link>

@@ -13,7 +13,7 @@ const ResetPassword = () => {
     console.log('Token from URL:', token); // This should log the token captured from the URL
     
     try {
-      const response = await axios.post(`http://localhost:5000/auth/reset-password/${token}`, { password });
+      const response = await axios.post(`https://burger-website-backend.vercel.app/auth/reset-password/${token}`, { password });
       console.log('Response data:', response.data);
       alert(response.data.message);
       navigate('/login');
