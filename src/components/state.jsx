@@ -22,7 +22,7 @@ function State({ stateValue, localGovValue, handleStateChange, handleLocalGovCha
                 </label>
                 <select
                     name="state"
-                    className="border border-gray-300 rounded p-2 mt-1 w-[400px] outline-red-200"
+                    className="border border-gray-300 rounded p-2 mt-1 w-full md:w-[400px] outline-red-200"
                     value={stateValue}
                     onChange={onStateChange}
                 >
@@ -40,7 +40,7 @@ function State({ stateValue, localGovValue, handleStateChange, handleLocalGovCha
                 </label>
                 <select
                     name="localGovArea"
-                    className="border border-gray-300 rounded p-2 mt-1 w-[400px] outline-red-200"
+                    className="border border-gray-300 rounded p-2 mt-1 w-full md:w-[400px] outline-red-200"
                     value={localGovValue}
                     onChange={handleLocalGovChange}
                     disabled={!stateValue}
@@ -55,6 +55,7 @@ function State({ stateValue, localGovValue, handleStateChange, handleLocalGovCha
             </div>
         </div>
     );
+    
 }
 
 export default State;

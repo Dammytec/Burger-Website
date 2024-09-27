@@ -22,7 +22,7 @@ const Login = () => {
 
       if (token) {
         localStorage.setItem('token', JSON.stringify(token));
-        navigate('/menu'); // Redirect to a secure route after login
+        navigate('/'); // Redirect to a secure route after login
       } else {
         setError('Invalid login credentials');
       }

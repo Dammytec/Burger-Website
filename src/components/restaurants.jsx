@@ -21,7 +21,7 @@ function Restaurants(params) {
     <div className=" bg-[#f5ebdc]">
       <Headers />
       <div className=" flex gap-3">
-        <div className="all h-[900px] overflow-y-scroll ">
+        <div className="all h-[900px] overflow-y-scroll  hidden sm:block">
           <div className="font-[Flame-Bold] font-[900] mt-20 text-center sm:text-left px-4 sm:px-0">
             <h1>
               <Link to="/home">HOME</Link> /{" "}
@@ -268,16 +268,17 @@ function Restaurants(params) {
             <button>Desserts</button>
           </div>
         </div>
-        <div className="flex items-center font-[900] font-[flame] text-lg sm:text-2xl bg-[#502314] rounded-full text-white p-1 sm:p-2">
-          <div>
-            <Link to="/cart">
-              <CiShoppingCart />
-            </Link>
-          </div>
-          <h1>
-            <Link to="/cart">cart {cartCount}</Link>
-          </h1>
-        </div>
+        <div className="flex items-center font-[900] font-[flame] text-sm sm:text-lg bg-[#502314] rounded-full text-white p-1 sm:p-2">
+  <div>
+    <Link to="/cart">
+      <CiShoppingCart className="w-4 h-4 sm:w-6 sm:h-6" /> {/* Adjust icon size */}
+    </Link>
+  </div>
+  <h1 className="ml-2">
+    <Link to="/cart">cart {cartCount}</Link>
+  </h1>
+</div>
+
         <div></div>
       </div>
       <ProductList cartCount={cartCount} setCartCount={setCartCount} />

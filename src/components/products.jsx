@@ -113,7 +113,7 @@ import { useState, useEffect } from "react";
       price: "&#8358;1200",
     },
     {
-        imgSrc: "https://s3-eu-central-1.amazonaws.com/www.burger-king.ng/wp-media-folder-burger-king-nigeria//home/ubuntu/wordpress/web/app/uploads/sites/12/2021/09/chicken-nuggets-1024x659.jpg",
+        imgSrc: "cc",
         title: "Chicken Nuggets",
         time: "10 - 20mins",
         price: "&#8358;1200",
