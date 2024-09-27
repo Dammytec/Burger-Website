@@ -48,7 +48,7 @@ function Header2() {
         </div>
         <div className="pr-6 hidden md:block">
           <button className="bg-[#d72300] p-1 w-24 rounded-full text-white font-[900] font-[flame]">
-            <Link to="/register">Register</Link>
+            <Link to="/">Register</Link>
           </button>
         </div>
 

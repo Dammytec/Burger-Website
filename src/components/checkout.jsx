@@ -327,133 +327,134 @@ const handleSubmit = async (e) => {
     
     
     
-    return (
-        <div className="bg-[#f5ebdc]">
-            <Header2 />
-            <div className="pt-20 w-[90%] m-auto flex gap-3 font-[800] font-[flame]">
-                <Link to='/cart'><FaArrowLeft className="text-2xl" /></Link>
-                <h1>Back to cart</h1>
+return (
+    <div className="bg-[#f5ebdc]">
+        <Header2 />
+        <div className="pt-20 w-[90%] m-auto flex gap-3 font-[800] font-[flame]">
+            <Link to='/cart'><FaArrowLeft className="text-2xl" /></Link>
+            <h1>Back to cart</h1>
+        </div>
+
+        {isLoading && (
+            <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-64 w-64"></div>
             </div>
-    
-            {isLoading && (
-                <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-64 w-64"></div>
-                </div>
-            )}
-    
-            <div className="flex flex-col items-center justify-center min-h-screen p-4">
-                <h1 className="text-3xl font-[900] font-[flame] tracking-tight text-[#502314] mb-3">Checkout.</h1>
-                <div className="bg-[#f5ebdc] shadow-md p-4">
-                    <h1 className="text-2xl font-[900] font-[flame] tracking-tight text-[#502314]">Recipient Information</h1>
-                    <form onSubmit={handleSubmit}>
-                        <div className="flex gap-4 mt-4">
-                            <div>
-                                <input
-                                    type="text"
-                                    name="firstName"
-                                    placeholder="First Name"
-                                    value={formData.firstName}
-                                    onChange={handleChange}
-                                    className={`outline-red-200 h-10 w-[200px] pl-3 rounded ${errors.firstName ? 'border-red-500' : ''}`}
-                                />
-                                {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
-                            </div>
-                            <div>
-                                <input
-                                    type="text"
-                                    name="lastName"
-                                    placeholder="Last Name"
-                                    value={formData.lastName}
-                                    onChange={handleChange}
-                                    className={`outline-red-200 h-10 w-[200px] pl-3 rounded ${errors.lastName ? 'border-red-500' : ''}`}
-                                />
-                                {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
-                            </div>
-                        </div>
-                        <div>
+        )}
+
+        <div className="flex flex-col items-center justify-center min-h-screen p-4">
+            <h1 className="text-3xl font-[900] font-[flame] tracking-tight text-[#502314] mb-3">Checkout.</h1>
+            <div className="bg-[#f5ebdc] shadow-md p-4 w-full max-w-xl"> {/* Set max width for responsiveness */}
+                <h1 className="text-2xl font-[900] font-[flame] tracking-tight text-[#502314]">Recipient Information</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                        <div className="flex-1">
                             <input
-                                type="email"
-                                name="email"
-                                placeholder="Enter your Email"
-                                value={formData.email}
+                                type="text"
+                                name="firstName"
+                                placeholder="First Name"
+                                value={formData.firstName}
                                 onChange={handleChange}
-                                className={`outline-red-200 h-10 w-[400px] pl-3 mt-4 rounded ${errors.email ? 'border-red-500' : ''}`}
+                                className={`outline-red-200 h-10 w-full pl-3 rounded ${errors.firstName ? 'border-red-500' : ''}`}
                             />
-                            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                            {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                         </div>
+                        <div className="flex-1">
+                            <input
+                                type="text"
+                                name="lastName"
+                                placeholder="Last Name"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                className={`outline-red-200 h-10 w-full pl-3 rounded ${errors.lastName ? 'border-red-500' : ''}`}
+                            />
+                            {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
+                        </div>
+                    </div>
+                    <div>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your Email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className={`outline-red-200 h-10 w-full mt-4 pl-3 rounded ${errors.email ? 'border-red-500' : ''}`}
+                        />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+                    </div>
+                    <div>
+                        <PhoneNumberInput
+                            value={formData.phoneNumber}
+                            onChange={handlePhoneNumberChange}
+                        />
+                    </div>
+                    <div className="mt-4">
+                        <h1 className="text-2xl font-[900] font-[flame] tracking-tight text-[#502314]">Delivery Address</h1>
+                        <State
+                            stateValue={formData.state}
+                            localGovValue={formData.localGovArea}
+                            handleStateChange={handleStateChange}
+                            handleLocalGovChange={handleLocalGovChange}
+                        />
+                        {errors.state && <p className="text-red-500 text-sm">{errors.state}</p>}
+                        {errors.localGovArea && <p className="text-red-500 text-sm">{errors.localGovArea}</p>}
                         <div>
-                            <PhoneNumberInput
-                                value={formData.phoneNumber}
-                                onChange={handlePhoneNumberChange} // Ensure this function updates formData.phoneNumber
+                            <label className="block text-[#502314]">
+                                Address<span className="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                name="address"
+                                placeholder="Enter your Address"
+                                value={formData.address}
+                                onChange={handleChange}
+                                className={`outline-red-200 h-10 w-full pl-3 rounded ${errors.address ? 'border-red-500' : ''}`}
                             />
+                            {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
                         </div>
-                        <div className="mt-4">
-                            <h1 className="text-2xl font-[900] font-[flame] tracking-tight text-[#502314]">Delivery Address</h1>
-                            <State
-                                stateValue={formData.state}
-                                localGovValue={formData.localGovArea}
-                                handleStateChange={handleStateChange}
-                                handleLocalGovChange={handleLocalGovChange}
-                            />
-                            {errors.state && <p className="text-red-500 text-sm">{errors.state}</p>}
-                            {errors.localGovArea && <p className="text-red-500 text-sm">{errors.localGovArea}</p>}
-                            <div>
-                                <label className="block text-[#502314]">
-                                    Address<span className="text-red-500">*</span>
-                                </label>
+                    </div>
+                    <div className="mt-4">
+                        <h2 className="text-lg font-semibold text-[#502314]">Select Payment Method:</h2>
+                        <div className="flex gap-4">
+                            <label className="flex items-center">
                                 <input
-                                    type="text"
-                                    name="address"
-                                    placeholder="Enter your Address"
-                                    value={formData.address}
-                                    onChange={handleChange}
-                                    className={`outline-red-200 h-10 w-[420px] pl-3 rounded ${errors.address ? 'border-red-500' : ''}`}
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="paystack"
+                                    checked={formData.paymentMethod === 'paystack'}
+                                    onChange={handlePaystack}
+                                    className="mr-2"
                                 />
-                                {errors.address && <p className="text-red-500 text-sm">{errors.address}</p>}
-                            </div>
+                                Paystack
+                            </label>
+                            <label className="flex items-center">
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="flutterwave"
+                                    checked={formData.paymentMethod === 'flutterwave'}
+                                    onChange={handleChange}
+                                    className="mr-2"
+                                />
+                                Flutterwave
+                            </label>
                         </div>
-                        <div className="mt-4">
-                            <h2 className="text-lg font-semibold text-[#502314]">Select Payment Method:</h2>
-                            <div className="flex gap-4">
-                                <label className="flex items-center">
-                                    <input
-                                        type="radio"
-                                        name="paymentMethod"
-                                        value="paystack"
-                                        checked={formData.paymentMethod === 'paystack'}
-                                        onChange={handlePaystack}
-                                        className="mr-2"
-                                    />
-                                    Paystack
-                                </label>
-                                <label className="flex items-center">
-                                    <input
-                                        type="radio"
-                                        name="paymentMethod"
-                                        value="flutterwave"
-                                        checked={formData.paymentMethod === 'flutterwave'}
-                                        onChange={handleChange}
-                                        className="mr-2"
-                                    />
-                                    Flutterwave
-                                </label>
-                            </div>
-                            {errors.paymentMethod && <p className="text-red-500 text-sm">{errors.paymentMethod}</p>}
-                        </div>
-                        <div className="mt-4">
-                            <button
-                                type="submit"
-                                className={`text-white font-[900] font-[flame] rounded-full mt-6 w-[400px] p-2 ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#d72300]'}`}
-                                disabled={isLoading}
-                            >
-                                {isLoading ? 'Processing...' : 'Place your Order'}
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                        {errors.paymentMethod && <p className="text-red-500 text-sm">{errors.paymentMethod}</p>}
+                    </div>
+                    <div className="mt-4">
+                        <button
+                            type="submit"
+                            className={`text-white font-[900] font-[flame] rounded-full mt-6 w-full p-2 ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#d72300]'}`}
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Processing...' : 'Place your Order'}
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
-    );
+    </div>
+);
+
     
   }
   

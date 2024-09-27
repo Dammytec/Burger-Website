@@ -5,12 +5,12 @@ import Footer from "../shared-components/footer";
 
 function News() {
   return (
-    <div className=" bg-[#f5ebdc]">
+    <div className="bg-[#f5ebdc]">
       <Headers />
-      <div className=" font-[900] font-[flame] text-2xl pt-32 w-[90%] m-[auto]">
+      <div className="font-[900] font-[flame] text-2xl pt-32 w-[90%] m-[auto] text-center md:text-left">
         News
       </div>
-      <div className="grid grid-cols-3 gap-4 w-[90%] mx-auto mt-5 mb-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-[90%] mx-auto mt-5 mb-20">
         <div>
           <div className="w-full h-[230px]">
             <img
@@ -20,7 +20,7 @@ function News() {
             />
           </div>
           <div>
-            <h1 className=" font-[900] font-[flame] text-2xl mt-5">
+            <h1 className="font-[900] font-[flame] text-2xl mt-5">
               NEW SIDES ALERT!!!
             </h1>
             <h3 className="font-[900] font-[flame] tracking-tight mt-1">
@@ -37,7 +37,7 @@ function News() {
             />
           </div>
           <div>
-            <h1 className=" font-[900] font-[flame] text-2xl mt-5">
+            <h1 className="font-[900] font-[flame] text-2xl mt-5">
               WHAT’S BETTER THAN
             </h1>
             <h3 className="font-[900] font-[flame] tracking-tight mt-2">
@@ -55,7 +55,7 @@ function News() {
             />
           </div>
           <div>
-            <h1 className=" font-[900] font-[flame] text-2xl mt-5">
+            <h1 className="font-[900] font-[flame] text-2xl mt-5">
               Best Sellers of the{" "}
             </h1>
             <h3 className="font-[900] font-[flame] tracking-tight mt-2">
@@ -73,7 +73,7 @@ function News() {
             />
           </div>
           <div>
-            <h1 className=" font-[900] font-[flame] text-2xl mt-5">
+            <h1 className="font-[900] font-[flame] text-2xl mt-5">
               THE WHOPPER HAS A NEW
             </h1>
             <h3 className="font-[900] font-[flame] tracking-tight mt-2">
@@ -83,9 +83,10 @@ function News() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
+  
 }
 
 export default News;

@@ -27,7 +27,7 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Menu/>} />
+      <Route path='/menu' element={<Menu/>} />
       <Route path='/home' element={<Home/>} />
       <Route path='/careers' element={<Careers/>} />
       <Route path='/news' element={<News/>} />
@@ -40,7 +40,7 @@ function App() {
       <Route path='/phoneNumber' element={<PhoneNumberInput/>} />
       <Route path='/state' element={<State/>} />
       <Route path='/payment' element={<PaymentOptions/>} />
-      <Route path='/register' element={<Register/>} />
+      <Route path='/' element={<Register/>} />
       <Route path='/login' element={<Login/>} />
       <Route path='/forgotPassword' element={<ForgotPassword/>} />
       <Route path='/reset' element={<ResetPassword/>} />

@@ -20,8 +20,6 @@ function Register() {
         email,
         password,
       });
-      console.log(response.data);
-      
 
       if (response.status === 200) {
         alert('Registration successful! Please check your email to verify your account.');
@@ -33,17 +31,15 @@ function Register() {
   };
 
   return (
-    <div className="flex gap-6 w-[75%] m-auto bg-white shadow-md rounded-2xl mt-14">
-      <div className="w-[500px]">
+    <div className="flex flex-col md:flex-row gap-6 w-[90%] md:w-[75%] m-auto bg-white shadow-md rounded-2xl mt-14">
+      <div className="w-full md:w-[500px]">
         <img
           src="https://s3-eu-central-1.amazonaws.com/www.burger-king.ng/wp-media-folder-burger-king-nigeria//home/ubuntu/wordpress/web/app/uploads/sites/12/2021/08/769_DOUBLE-WHOPPER.jpg"
-          alt=""
-          width="100%"
-          height="100%"
-          className="h-[470px]"
+          alt="Burger"
+          className="h-[300px] md:h-[470px] w-full object-cover"
         />
       </div>
-      <div>
+      <div className="w-full md:w-auto">
         <div>
           <h1 className="text-2xl font-[900] font-[flame] text-[#502314] mb-4">REGISTER</h1>
         </div>
@@ -53,7 +49,7 @@ function Register() {
             <input
               type="text"
               placeholder="First name"
-              className="border border-2px w-[400px] outline-gray-500 h-10 pl-4 rounded"
+              className="border border-2px w-full md:w-[400px] outline-gray-500 h-10 pl-4 rounded"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
               required
@@ -64,7 +60,7 @@ function Register() {
             <input
               type="text"
               placeholder="Last name"
-              className="border border-2px w-[400px] outline-gray-500 h-10 pl-4 rounded"
+              className="border border-2px w-full md:w-[400px] outline-gray-500 h-10 pl-4 rounded"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               required
@@ -75,7 +71,7 @@ function Register() {
             <input
               type="email"
               placeholder="Email"
-              className="border border-2px w-[400px] outline-gray-500 h-10 pl-4 rounded"
+              className="border border-2px w-full md:w-[400px] outline-gray-500 h-10 pl-4 rounded"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -86,7 +82,7 @@ function Register() {
             <input
               type="password"
               placeholder="Password"
-              className="border border-2px w-[400px] outline-gray-500 h-10 pl-4 rounded"
+              className="border border-2px w-full md:w-[400px] outline-gray-500 h-10 pl-4 rounded"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -99,13 +95,12 @@ function Register() {
               I agree to the <Link to="/terms" className="text-blue-600 hover:underline">terms and conditions</Link>.
             </label>
           </div>
-          <div className="flex justify-between items-center mt-6">
-            <button type="submit" className="bg-[#d72300] p-1 w-44 rounded-full text-white font-[900] font-[flame]">
+          <div className="flex flex-col md:flex-row justify-between items-center mt-6">
+            <button type="submit" className="bg-[#d72300] p-1 w-full md:w-44 rounded-full text-white font-[900] font-[flame]">
               Register Now
             </button>
-            <h1 className="font-[900] font-[flame] text-[#502314]">
-              <Link to='/login' >Login</Link>
-            
+            <h1 className="font-[900] font-[flame] text-[#502314] mt-4 md:mt-0">
+              <Link to='/login'>Login</Link>
             </h1>
           </div>
         </form>
@@ -115,6 +110,7 @@ function Register() {
 }
 
 export default Register;
+
 
 
 
