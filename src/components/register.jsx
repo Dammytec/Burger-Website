@@ -14,7 +14,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://burger-website-backend.vercel.app/auth/register', {
+      const response = await axios.post('https://burger-website-backend-5dce.onrender.com/auth/register', {
         firstName,
         lastName,
         email,

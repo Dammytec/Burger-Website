@@ -180,7 +180,7 @@ import { useState, useEffect } from "react";
         useEffect(() => {
           const fetchProducts = async () => {
             try {
-              const response = await axios.get('https://burger-website-backend.vercel.app/product/get-products');
+              const response = await axios.get('https://burger-website-backend-5dce.onrender.com/product/get-products');
               setProducts(response.data);
             } catch (error) {
               console.error('Error fetching products:', error);
@@ -199,7 +199,7 @@ import { useState, useEffect } from "react";
           }
       
           try {
-            const response = await axios.post('http://localhost:5000/cart/cart',
+            const response = await axios.post('https://burger-website-backend-5dce.onrender.com/cart/cart',
               { productId, quantity },
               {
                 headers: {

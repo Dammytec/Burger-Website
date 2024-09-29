@@ -27,7 +27,7 @@ function Cart() {
       }
   
       try {
-        const response = await axios.get('https://burger-website-backend.vercel.app/cart/read', {
+        const response = await axios.get('https://burger-website-backend-5dce.onrender.com/cart/read', {
           headers: {
             'Authorization': `Bearer ${token}`,  // Confirm this is correct
           },
@@ -64,7 +64,7 @@ function Cart() {
       console.log('User ID:', userId);
       console.log('Product ID:', productId);
       
-      await axios.delete(`https://burger-website-backend.vercel.app/cart/delete/${userId}/${productId}`);
+      await axios.delete(`https://burger-website-backend-5dce.onrender.com/cart/delete/${userId}/${productId}`);
       
       // Update the cart items in the UI after successful deletion
       setCart(cartItems.filter(item => item.productId._id !== productId));

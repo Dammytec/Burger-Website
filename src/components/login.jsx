@@ -18,11 +18,16 @@ const Login = () => {
     setLoading(true); // Set loading to true
 
     try {
-      const response = await axios.post('https://burger-website-backend.vercel.app/auth/login', {
+      const response = await axios.post('https://burger-website-backend-5dce.onrender.com/auth/login', {
         email,
         password,
+      }, {
+        withCredentials: true, // Allows cookies or Authorization headers to be sent
+        headers: {
+          'Content-Type': 'application/json', // Ensures proper content type
+        }
       });
-      console.log(response);
+      console.log(response.data);
       
       const { token } = response.data;
 
@@ -71,7 +76,7 @@ const Login = () => {
           />
           <button 
             type="button" 
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 mt-4"
             onClick={() => setShowPassword(!showPassword)} // Toggle button
           >
             {showPassword ? 'Hide' : 'Show'}

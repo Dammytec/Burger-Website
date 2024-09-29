@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://burger-website-backend.vercel.app/auth/reset-password', { email });
+      const response = await axios.post('https://burger-website-backend-5dce.onrender.com/auth/reset-password', { email });
       alert(response.data.message);
       navigate('/reset')
     } catch (error) {
