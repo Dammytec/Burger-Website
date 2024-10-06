@@ -20,7 +20,11 @@ function Register() {
         email,
         password,
       });
-
+     if (!response) {
+        const error = await response.json();
+        console.log('Error:', error);
+      
+     }
       if (response.status === 200) {
         alert('Registration successful! Please check your email to verify your account.');
         navigate('/login');
@@ -89,12 +93,7 @@ function Register() {
             />
           </div>
           {error && <p className="text-red-500 mt-2">{error}</p>}
-          <div className="flex items-center mt-4">
-            <input type="checkbox" id="terms" className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded" required />
-            <label htmlFor="terms" className="ml-2 text-sm text-gray-600">
-              I agree to the <Link to="/terms" className="text-blue-600 hover:underline">terms and conditions</Link>.
-            </label>
-          </div>
+        
           <div className="flex flex-col md:flex-row justify-between items-center mt-6">
             <button type="submit" className="bg-[#d72300] p-1 w-full md:w-44 rounded-full text-white font-[900] font-[flame]">
               Register Now

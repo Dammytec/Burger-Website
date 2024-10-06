@@ -10,7 +10,7 @@ function Menu() {
       <div className="pt-40 bg-[#f5ebdc]">
         <div className="font-[Flame-Bold] font-[900] w-[90%] m-[auto]">
           <h1>
-            <Link to="/home">HOME</Link> / <Link className="text-[#d72300]">MENU</Link>
+            <Link to="/home">HOME</Link> / <Link className="text-[#d72300] sm:pt-52">MENU</Link>
           </h1>
         </div>
         <div className="font-[Flame-Bold] font-[900] w-[90%] m-[auto] mt-20 text-2xl md:text-3xl">

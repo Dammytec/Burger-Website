@@ -46,6 +46,7 @@ function App() {
       <Route path='/reset' element={<ResetPassword/>} />
       <Route path='/checkout' element={<CheckoutPage/>} />
       <Route path='/confirmation' element={<PaymentConfirmation/>} />
+    
     </Routes>
     </BrowserRouter>
   )
